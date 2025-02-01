@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Shape.h"
+#include "ShapeVisitor.h"
 
 using namespace std;
 
@@ -27,8 +28,18 @@ class Circle : public Shape
 	  std::cout << " circle drawing~!" << endl;
 	}
 
+	void setCenter( double x, double y) {
+	  center_.x = x;
+	  center_.y = y;
+	}
+
 	double radius() { return radius_; }
 	Point center() { return center_; }
+
+  public: // visitor pattern method
+    void accept(ShapeVisitor&& v) override {
+	  v.visit(*this);
+	}
 };
 
 #endif

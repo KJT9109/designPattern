@@ -1,6 +1,8 @@
 #ifndef __SHAPE_H__
 #define __SHAPE_H__
 
+class ShapeVisitor;
+
 struct Point
 {
   double x;
@@ -14,6 +16,7 @@ class Shape
 
 	virtual ~Shape() = default;
 	virtual void draw() const = 0;
+	virtual void accept(ShapeVisitor &&) = 0;
 };
 
 #endif

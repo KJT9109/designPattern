@@ -1,6 +1,10 @@
 #ifndef __TRAPEZOID_H__
 #define __TRAPEZOID_H__
 
+#include <iostream>
+#include <string>
+#include "Shape.h"
+
 using namespace std;
 
 class Trapezoid : public Shape
@@ -31,10 +35,20 @@ class Trapezoid : public Shape
 	  cout << " trapezoid drawing~!" << endl;
 	}
 
+	void setCenter( double x, double y) {
+	  center_.x = x;
+	  center_.y = y;
+	}
+
 	double topSide() { return topSide_; }
 	double bottomSide() { return bottomSide_; }
 	double bothSide() { return bothSide_; }
 	Point center() { return center_; }
+
+  public: // visitor pattern method
+    void accept( ShapeVisitor&& v) override {
+	  v.visit(*this);
+	}
 };
 
 #endif

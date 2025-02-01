@@ -26,10 +26,18 @@ class Square : public Shape
 	void draw() const override {
 	  cout << " square drawing~!" << endl;
 	}
+	void setCenter( double x, double y) {
+	  center_.x = x;
+	  center_.y = y;
+	}
 
 	double side() { return side_; }
 	Point center() { return center_; }
-};
 
+  public: // visitor pattern method
+	void accept( ShapeVisitor&& v) override {
+	  v.visit(*this);
+	}
+};
 
 #endif
