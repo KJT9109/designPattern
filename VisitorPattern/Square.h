@@ -14,18 +14,17 @@ class Square : public Shape
 	Point center_{};
 
   public:
-	explicit Square( double side )
-	  : side_( side )
-	{
-	  if (side > 0) {
-		cout << "Square side is valid !! \n" << endl;
+	explicit Square( double side = 1 ) {
+	  if (side <= 0) {
+		throw invalid_argument("Square side is invalid");
 	  } else {
-		cout << "Square side is invalid !! \n" << endl;
+		cout << "Square side is valid " << endl;
+		this->side_ = side;
 	  }
 	}
 
 	void draw() const override {
-	  std::cout << " square drawing~! \n" << std::endl;
+	  cout << " square drawing~!" << endl;
 	}
 
 	double side() { return side_; }

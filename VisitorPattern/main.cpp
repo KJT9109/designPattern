@@ -1,11 +1,21 @@
 #include "Circle.h"
 #include "Square.h"
+#include "Trapezoid.h"
 
 int main()
 {
-  Shape *shape = new Circle(5);
-  Shape *shape2 = new Square(7);
+  try {
+	Shape *circleShape = new Circle(5);
+	Shape *squareShape = new Square(7);
+	Shape *trapeZoidShape = new Trapezoid();
 
-  shape->draw();
-  shape2->draw();
+	circleShape->draw();
+	squareShape->draw();
+	trapeZoidShape->draw();
+
+  }
+  catch (invalid_argument& e) {
+	cerr << e.what();
+  }	
+
 }

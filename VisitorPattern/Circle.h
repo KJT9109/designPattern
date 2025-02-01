@@ -14,18 +14,17 @@ class Circle : public Shape
 	Point center_{};
 
   public:
-	explicit Circle( double radius )
-	  : radius_( radius )
-	{
-	  if (radius > 0) {
-		cout << "Circle radius is valid !! \n" << endl;
+	explicit Circle( double radius ) {
+	  if (radius < 0) {
+		throw invalid_argument("Circle radius is invalid");
 	  } else {
-		cout << "Circle radius is invalid !! \n"<< endl;
+		cout << "Circle radius is valid " << endl;
+		this->radius_ = radius;
 	  }
 	}
 
 	void draw() const override {
-	  std::cout << " circle drawing~! \n" << endl;
+	  std::cout << " circle drawing~!" << endl;
 	}
 
 	double radius() { return radius_; }
