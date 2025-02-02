@@ -16,6 +16,9 @@ class Shape
 
 	virtual ~Shape() = default;
 	virtual void draw() const = 0;
+	virtual Point getCenter() = 0;
+
+  public:
 	virtual void accept(ShapeVisitor &&) = 0;
 };
 

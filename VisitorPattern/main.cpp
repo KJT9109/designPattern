@@ -5,6 +5,7 @@
 #include "Trapezoid.h"
 #include "Square.h"
 #include "Move.h"
+#include "Rotate.h"
 
 int main()
 {
@@ -18,11 +19,15 @@ int main()
 	for (auto const& shape : Shapes)
 	{
 	  shape->draw();
+	  // move operation in visitor pattern
 	  shape->accept(std::move(move5m));
 	 // shape->accept( Move{1,5} );
-	 
-	}
+	  Point getPoint = shape->getCenter();
+	  cout << " x,y is " << getPoint.x << "," << getPoint.y << endl; 
 
+	  // rotate operation in visitor pattern
+	  shape->accept(Rotate{});
+	}
   }
   catch (invalid_argument& e) {
 	cerr << e.what();

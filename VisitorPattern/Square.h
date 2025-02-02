@@ -31,8 +31,9 @@ class Square : public Shape
 	  center_.y = y;
 	}
 
+	Point getCenter() override { return center_; }
+
 	double side() { return side_; }
-	Point center() { return center_; }
 
   public: // visitor pattern method
 	void accept( ShapeVisitor&& v) override {

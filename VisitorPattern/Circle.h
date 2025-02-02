@@ -28,13 +28,14 @@ class Circle : public Shape
 	  std::cout << " circle drawing~!" << endl;
 	}
 
+	Point getCenter() override { return center_; }
+
 	void setCenter( double x, double y) {
 	  center_.x = x;
 	  center_.y = y;
 	}
 
-	double radius() { return radius_; }
-	Point center() { return center_; }
+	double getRadius() { return radius_; }
 
   public: // visitor pattern method
     void accept(ShapeVisitor&& v) override {

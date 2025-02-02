@@ -35,15 +35,16 @@ class Trapezoid : public Shape
 	  cout << " trapezoid drawing~!" << endl;
 	}
 
+	Point getCenter() override { return center_; }
+
 	void setCenter( double x, double y) {
 	  center_.x = x;
 	  center_.y = y;
 	}
 
-	double topSide() { return topSide_; }
-	double bottomSide() { return bottomSide_; }
-	double bothSide() { return bothSide_; }
-	Point center() { return center_; }
+	double getTopSide() { return topSide_; }
+	double getBottomSide() { return bottomSide_; }
+	double getBothSide() { return bothSide_; }
 
   public: // visitor pattern method
     void accept( ShapeVisitor&& v) override {
