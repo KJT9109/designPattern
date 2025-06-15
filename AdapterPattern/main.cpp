@@ -7,8 +7,8 @@
 int main()
 {
   std::unique_ptr<Book> novelBooks = std::make_unique<Book>(328);
-  PageAdapter transDocument(std::move(novelBooks));
+  PageAdapter documentFolder(std::move(novelBooks));
 
-  transDocument.exportToJSON();
-  transDocument.serialize();
+  documentFolder.exportToJSON();
+  documentFolder.serialize();
 }

@@ -8,21 +8,21 @@ class PageAdapter : public Document
 {
   public:
 	explicit PageAdapter(std::unique_ptr<Pages> pages) {
-	  this->openPages_ = std::move(pages);
+	  this->concretePages = std::move(pages);
 	}
 	//...
 	int exportToJSON() const override {
-	  openPages_->convertToJson();
+	  concretePages->convertToJson();
 	  return 0;
 	}
 
 	int serialize() const override {
-	  openPages_->convertToBytes();
+	  concretePages->convertToBytes();
 	  return 0;
 	}
 
   private:
-	std::unique_ptr<Pages> openPages_;
+	std::unique_ptr<Pages> concretePages;
 };
 
 #endif
