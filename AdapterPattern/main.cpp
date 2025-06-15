@@ -1,12 +1,13 @@
 #include <vector>
 #include <memory>
+#include "Book.h"
 #include "PageAdapter.h"
 #include "Pages.h"
 
 int main()
 {
-  std::unique_ptr<Pages> page1;
-  PageAdapter transDocument(std::move(page1));
+  std::unique_ptr<Book> novelBooks = std::make_unique<Book>(328);
+  PageAdapter transDocument(std::move(novelBooks));
 
   transDocument.exportToJSON();
   transDocument.serialize();

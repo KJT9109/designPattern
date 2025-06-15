@@ -6,13 +6,10 @@
 class Pages
 {
   public:
-	void convertToBytes() {
-	  printf(" convert to bytes \n");
-	}
+	virtual void convertToBytes() const = 0;
+	virtual void convertToJson() const = 0;
+	virtual ~Pages() = default;
 
-	void convertToJson() {
-	  printf(" convert to Json \n");
-	}
 };
 
 
