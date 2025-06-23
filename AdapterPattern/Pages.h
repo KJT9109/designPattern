@@ -12,6 +12,4 @@ class Pages
 
 };
 
-
-
 #endif
